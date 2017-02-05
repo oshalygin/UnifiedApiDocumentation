@@ -9,9 +9,8 @@ const distFolder = path.join(__dirname, '../dist');
 
 const generator = {
   single(ramlSpecification, outputName) {
+
     chalkProcessing('Rendering HTML output, standby...');
-
-
     raml2html.render(ramlSpecification, defaultConfiguration)
       .then(
       (result) => {
@@ -25,9 +24,11 @@ const generator = {
           }
           console.log(chalkSuccess(`Specification created: ${outputPath}`));
         });
-      }, (error) => {
-        console.error(chalkError('Could not process the RAML specification, please review the following errors:'));
-        console.error(chalkError(error));
+      })
+      .catch((errors) => {
+        console.error(chalkProcessing(`RAML Processing Errors: ${errors.parserErrors.length}`));
+        console.error(chalkError(JSON.stringify(errors, null, 2)));
+        process.exit(1);
       });
   },
   all() {

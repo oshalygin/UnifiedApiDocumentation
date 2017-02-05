@@ -2,14 +2,13 @@
   "presets": [
     "es2015"
   ],
+  "sourceMaps": "inline",
   "plugins": [
     "transform-object-rest-spread"
   ],
   "env": {
     "development": {
-      "presets": [
-        
-      ]
+      "presets": []
     },
     "test": {
       "plugins": [
