@@ -1,3 +1,7 @@
+## 1.0.2 (Feburary 04, 2017)
+
+- Add raml2html functionality using a single file with a renderred output
+
 ## 1.0.1 (Feburary 04, 2017)
 
 - Add additional project tooling:

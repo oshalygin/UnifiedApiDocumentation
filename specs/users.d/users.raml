@@ -1,0 +1,112 @@
+#%RAML 1.0
+title: Users Service
+version: 1
+baseUri: http://www.unified-api-portal.com/{version}
+documentation:
+  - title: 
+    content: |
+      The user service describes the API available to consumers that are
+      looking to obtain detailed user information
+
+/user: # optional resource
+  description: Top level resource for users
+  get: 
+    responses: 
+      200: 
+        body: 
+          application/json:
+            type: | 
+              [{
+                "id": "canonical UserId"
+                "firstName": "First Name of the User",
+                "lastName": "Last Name of the User",
+                "age": "User age"
+                "DOB": "Users date of birth"
+              }]
+            example: 
+              [{
+                "id": 1,
+                "firstName": "Oleg"
+                "lastName": "Shalygin"
+                "age": 30,
+                "DOB": "11/27/86
+              },
+              {
+                "id": 2,
+                "firstName": "Carlota"
+                "lastName": "Turcios"
+                "age": 30,
+                "DOB": "4/19/87
+              }]
+  /{id}:
+    uriParameters:
+      id:
+        type: string
+        description: account identifier
+        minLength: 1
+        maxLength: 10
+
+    get:
+      headers:
+        Authorization:
+          type: string
+          description: Basic authentication header
+          example: |
+            Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
+
+    put:
+      body:
+        application/x-www-form-urlencoded:
+          properties:
+            name:
+              description: name on account
+              type: string
+              examples:
+                example1: Naruto Uzumaki
+                example2: Kevin Renskers
+            gender:
+              enum: ["male", "female"]
+    /address:
+      uriParameters:
+      id:
+        type: string
+        description: account identifier
+        minLength: 1
+        maxLength: 10
+      description: Sub resource for the user object
+      get:
+        response:
+          200:
+            body:
+              application/json:
+                type: |
+                  {
+                    [{
+                    id: "Address Id"
+                    street: "Street"
+                    number: "Street Number"
+                    zip: "Zip Code"
+                    state: "State"
+                    }],
+                    user: "/user/{id}
+                  }
+                example: |
+                  {
+                    [
+                      {
+                      id: "1"
+                      street: "Klump"
+                      number: 3331
+                      zip: 91606
+                      state: "California"
+                      },
+                      {
+                      id: "2"
+                      street: "Canby"
+                      number: 1231
+                      zip: 91335
+                      state: "California"
+                      },
+                    ],
+                    user: "/user/1"
+                  }

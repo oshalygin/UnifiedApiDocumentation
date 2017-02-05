@@ -1,15 +1,21 @@
 {
   "name": "unified-api-portal",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Unified API Portal",
   "scripts": {
     "lint": "eslint \"src/**/*.js\" utilities/** --color ",
+    "start": "babel-node ./src/application.js",
+    "lint:raml": "babel-node ./src/linter.js",
     "test:cover": "babel-node node_modules/isparta/bin/isparta cover --report lcov _mocha -- --require ./utilities/testSetup.js \"src/**/*.spec.js\" --reporter spec",
     "codacy:coverage": "cat ./coverage/lcov.info | codacy-coverage"
   },
   "author": "Oleg Shalygin",
   "license": "GPL-3.0",
-  "dependencies": {},
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "glob": "^7.1.1",
+    "raml2html": "^4.1.0"
+  },
   "devDependencies": {
     "babel-cli": "^6.22.2",
     "babel-core": "^6.22.1",
