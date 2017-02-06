@@ -13,6 +13,7 @@ cache:
 
 script:
   - npm run lint
+  - npm run lint:raml
   - npm run test:cover
   - npm run codacy:coverage
 

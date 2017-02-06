@@ -2,7 +2,6 @@
   "presets": [
     "es2015"
   ],
-  "sourceMaps": "inline",
   "plugins": [
     "transform-object-rest-spread"
   ],

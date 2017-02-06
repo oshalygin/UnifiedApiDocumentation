@@ -1,3 +1,11 @@
+## 1.1.0 (Feburary 05, 2017)
+
+- Add RAML linter that checks every specification defined in `/specs` for validity.
+
+## 1.0.3 (Feburary 04, 2017)
+
+- Add debugging support with VSCode
+
 ## 1.0.2 (Feburary 04, 2017)
 
 - Add raml2html functionality using a single file with a renderred output
