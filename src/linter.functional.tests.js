@@ -52,16 +52,15 @@ describe('Specification Linter', () => {
       raml2html.render(specification, configuration)
         .then(() => { //
           console.log(`Successfully processed ${specification}`);
-
-          if (index === (numberOfSpecifications - 1)) {
+          if (index === 0) {
             done();
           }
         })
         .catch((errors) => {
           console.log(`Error processing ${specification}`);
           console.error(JSON.stringify(errors, null, 2));
-
-          if (index === (numberOfSpecifications - 1)) {
+          expect(errors.parserErrors.length).equals(0);
+          if (index === 0) {
             done();
           }
         });

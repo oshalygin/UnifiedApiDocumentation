@@ -1,3 +1,7 @@
+## 1.1.1 (Feburary 05, 2017)
+
+- Update `forEach` logic for test completion
+
 ## 1.1.0 (Feburary 05, 2017)
 
 - Add RAML linter that checks every specification defined in `/specs` for validity.
