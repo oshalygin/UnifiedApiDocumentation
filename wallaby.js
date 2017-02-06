@@ -51,7 +51,6 @@ module.exports = function (wallaby) {
         }
       });
 
-
       global.localStorage = {
         getItem() { },
         setItem() { }
