@@ -46,23 +46,22 @@ describe('Specification Linter', () => {
 
     const specifications = glob.sync(path.join(__dirname, '../specs/**/*.raml'));
     const numberOfSpecifications = specifications.length;
+    let processedSpecifications = 0;
     console.log(`Processing (${numberOfSpecifications}) RAML Specifications`);
-
-    specifications.forEach((specification, index) => {
+    
+    specifications.forEach((specification) => {
       raml2html.render(specification, configuration)
-        .then(() => { 
+        .then(() => {
+          processedSpecifications = processedSpecifications + 1;
           console.log(`Successfully processed ${specification}`);
-          if (index === 0) {
+          if (processedSpecifications === numberOfSpecifications) {
             done();
           }
         })
         .catch((errors) => {
           console.log(`Error processing ${specification}`);
-          console.error(JSON.stringify(errors, null, 2));
-          expect(errors.parserErrors.length).equals(0);
-          if (index === 0) {
-            done();
-          }
+          console.error(`Error response: ${JSON.stringify(errors, null, 2)}`);
+          return done(errors);
         });
     });
 

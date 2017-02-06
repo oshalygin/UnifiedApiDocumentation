@@ -1,6 +1,6 @@
 {
   "name": "unified-api-portal",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Unified API Portal",
   "scripts": {
     "lint": "eslint \"src/**/*.js\" utilities/** --color ",
