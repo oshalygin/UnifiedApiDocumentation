@@ -1,6 +1,10 @@
 ## 1.2.0 (Feburary 05, 2017)
 
-- Functionality to process and output all RAML specifications located in `/specs`
+- Clean test logic to properly account for linting errors.
+
+## 1.2.0 (Feburary 05, 2017)
+
+- Functionality to process and output all RAML specifications located in `/specs`.
 
 ## 1.1.1 (Feburary 05, 2017)
 
