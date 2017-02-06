@@ -50,7 +50,7 @@ describe('Specification Linter', () => {
 
     specifications.forEach((specification, index) => {
       raml2html.render(specification, configuration)
-        .then(() => { //
+        .then(() => { 
           console.log(`Successfully processed ${specification}`);
           if (index === 0) {
             done();

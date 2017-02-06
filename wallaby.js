@@ -3,6 +3,7 @@ module.exports = function (wallaby) {
   return {
     files: [
       'src/**/*.js*',
+      'utilities/**/chalkConfiguration.js',
       '!src/**/*.json',
       '!src/**/*.raml',
       '!src/**/*.spec.js*'
